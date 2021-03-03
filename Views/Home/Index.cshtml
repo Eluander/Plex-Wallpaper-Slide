@@ -30,7 +30,7 @@
                     </div>
                     <div class="carousel-caption">
                         <h3 class="ultra-font badge badge-dark">@item.title</h3>
-                        <h4 class="text-justify">@item.summary</h4>
+                        <h4 class="text-justify">@item.summary.Substring(0, Math.Min(item.summary.Length, 300))</h4>
                     </div>
                 </div>
             }

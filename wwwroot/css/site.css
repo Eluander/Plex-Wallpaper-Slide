@@ -23,6 +23,7 @@
 }
 
 .carousel-caption {
+    max-height: 300px;
     background-color: rgba(25, 25, 25, 0.55);
     padding: 10px;
     border-radius: 10px;
@@ -37,6 +38,6 @@
 
 .footer-plex {
     z-index: 200;
-    position:absolute;
+    position: absolute;
     bottom: 2px;
 }
