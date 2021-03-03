@@ -18,7 +18,7 @@
             </div>
         </div>
 
-        @if (Model != null)
+        @*@if (Model != null)
         {
             foreach (var item in Model.MediaContainer.Metadata)
             {
@@ -29,12 +29,12 @@
                         <img class="d-block w-100" src="@Html.Raw(ViewBag.Client + item.thumb + "?X-Plex-Token=" + ViewBag.Token)" alt="@item.title">
                     </div>
                     <div class="carousel-caption">
-                        <h3 class="ultra-font badge badge-dark">@item.title</h3>
+                        <h3 class="my-title">@item.title</h3>
                         <h4 class="text-justify">@item.summary.Substring(0, Math.Min(item.summary.Length, 300))</h4>
                     </div>
                 </div>
             }
-        }
+        }*@
         <div class="footer-plex">
             <a class="btn btn-link text-white-50" href="https://eluander.com.br">eluander.com.br</a>
         </div>
@@ -54,3 +54,31 @@
     <h1>Erro ao carregar api PLEX</h1>
 }
 
+@section Scripts{ 
+
+    <script type="text/javascript">
+
+        var lst = @Html.Raw(Json.Serialize(Model.MediaContainer.Metadata));
+        var client = "@Html.Raw(ViewBag.Client)";
+        var token = "@Html.Raw(ViewBag.Token)";
+
+        for (var i = 0; i < lst.length; i++) {
+            let item = lst[i];
+            let isActive = i == 0 ? "active" : "";
+
+            let tag = `<div class="carousel-item ${isActive}">
+                            <div class="d-flex align-items-center justify-content-center min-vh-100">
+                                <img class="d-block w-100" src="${client}${item.thumb}?X-Plex-Token=${token}" alt="${item.title}">
+                            </div>
+                            <div class="carousel-caption">
+                                <span class="my-title">${item.title}</span>
+                                <h4 class="my-desc">${item.summary}</h4>
+                            </div>
+                        </div>`;
+
+            $(".carousel-inner").append(tag);
+        }
+
+    </script>
+
+}

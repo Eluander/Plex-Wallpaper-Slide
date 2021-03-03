@@ -1,4 +1,32 @@
-﻿img {
+﻿@font-face {
+    font-family: 'Sketchzone';
+    src: url('../fonts/sketchzone/Sketchzone.otf') format('opentype');
+}
+
+.font-sketchzone {
+    font-family: Sketchzone !important;
+}
+
+.carousel-caption {
+    padding: 20px;
+    border-radius: 10px;
+    opacity: .6;
+    background: darkviolet;
+}
+
+.my-title {
+    font-family: Sketchzone !important;
+    font-size: 80px;
+    color: #fff;
+    text-shadow: 5px 5px #55bb79;
+}
+
+.my-desc {
+    text-shadow: 2px 2px #000;
+    text-align: justify;
+}
+
+img {
     height: 100vh !important;
 }
 
@@ -20,20 +48,6 @@
     border-radius: 10px;
     opacity: .5;
     float: right;
-}
-
-.carousel-caption {
-    max-height: 300px;
-    background-color: rgba(25, 25, 25, 0.55);
-    padding: 10px;
-    border-radius: 10px;
-    opacity: .8;
-}
-
-.ultra-font {
-    font-family: fantasy;
-    font-size: xx-large;
-    color: #fff;
 }
 
 .footer-plex {
