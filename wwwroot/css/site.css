@@ -1,0 +1,42 @@
+﻿img {
+    height: 100vh !important;
+}
+
+.row {
+    margin: 10px;
+    z-index: 200;
+    width: 100%;
+}
+
+.eluander {
+    padding: 2px;
+    border-radius: 10px;
+    opacity: .5;
+    float: left;
+}
+
+.plex {
+    padding: 2px;
+    border-radius: 10px;
+    opacity: .5;
+    float: right;
+}
+
+.carousel-caption {
+    background-color: rgba(25, 25, 25, 0.55);
+    padding: 10px;
+    border-radius: 10px;
+    opacity: .8;
+}
+
+.ultra-font {
+    font-family: fantasy;
+    font-size: xx-large;
+    color: #fff;
+}
+
+.footer-plex {
+    z-index: 200;
+    position:absolute;
+    bottom: 2px;
+}
