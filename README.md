@@ -7,8 +7,8 @@ Foi um projeto desenvolvido usando as api's do PLEX para criar uma aplicação b
 - Token PLEX.
 
 # Se seu servidor PLEX não estiver em uma rede SSL
-- É necessário dar algumas permissões extra no `Google Chrome`.
-Abra as `Configurações do site`
+- É necessário dar algumas permissões extra no <strong>Google Chrome</strong>.
+Abra as <strong>Configurações do site</strong>.
 >- Javascript : Permitir.
 >- Imagens : Permitir.
 >- Pop-ups : Permitir.
