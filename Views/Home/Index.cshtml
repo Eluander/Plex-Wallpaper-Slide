@@ -3,7 +3,7 @@
     int start = 0;
 }
 
-<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+<div id="carouselExampleControls" class="carousel slide" data-pause="false" data-ride="carousel">
     <div class="carousel-inner bg-info" role="listbox">
         <div class="row position-absolute">
             <div class="col-6">
@@ -29,8 +29,8 @@
                         <img class="d-block w-100" src="@Html.Raw(ViewBag.Client + item.thumb + "?X-Plex-Token=" + ViewBag.Token)" alt="@item.title">
                     </div>
                     <div class="carousel-caption">
-                        <h3 class="my-title">@item.title</h3>
-                        <h4 class="my-desc">@item.summary.Substring(0, Math.Min(item.summary.Length, 400))</h4>
+                        <h2 class="my-title">@item.title</h2>
+                        <span class="my-desc">@item.summary.Substring(0, Math.Min(item.summary.Length, 400))</span>
                     </div>
                 </div>
             }

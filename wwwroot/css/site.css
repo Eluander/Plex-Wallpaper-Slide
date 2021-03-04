@@ -16,7 +16,7 @@
 
 .my-title {
     font-family: Sketchzone !important;
-    font-size: 80px;
+    font-size: 70px;
     color: #fff;
     text-shadow: 5px 5px #55bb79;
 }
@@ -24,6 +24,7 @@
 .my-desc {
     text-shadow: 2px 2px #000;
     text-align: justify;
+    font-size: medium;
 }
 
 img {
