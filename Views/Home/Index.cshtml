@@ -8,7 +8,7 @@
         <div class="row position-absolute">
             <div class="col-6">
                 <div class="eluander">
-                    <img src="~/icones/eluander-logo-full-v2.png" style="max-height: 80px;" />
+                    <img src="~/icones/eluander-logo-full-v2.png" style="max-height: 90px;" />
                 </div>
             </div>
             <div class="col-6">
@@ -18,7 +18,7 @@
             </div>
         </div>
 
-        @*@if (Model != null)
+        @if (Model != null)
         {
             foreach (var item in Model.MediaContainer.Metadata)
             {
@@ -30,11 +30,11 @@
                     </div>
                     <div class="carousel-caption">
                         <h3 class="my-title">@item.title</h3>
-                        <h4 class="text-justify">@item.summary.Substring(0, Math.Min(item.summary.Length, 300))</h4>
+                        <h4 class="my-desc">@item.summary.Substring(0, Math.Min(item.summary.Length, 400))</h4>
                     </div>
                 </div>
             }
-        }*@
+        }
         <div class="footer-plex">
             <a class="btn btn-link text-white-50" href="https://eluander.com.br">eluander.com.br</a>
         </div>
@@ -55,30 +55,10 @@
 }
 
 @section Scripts{ 
-
     <script type="text/javascript">
+        console.log("@ViewBag.Client");
+        console.log("@ViewBag.Token");
 
-        var lst = @Html.Raw(Json.Serialize(Model.MediaContainer.Metadata));
-        var client = "@Html.Raw(ViewBag.Client)";
-        var token = "@Html.Raw(ViewBag.Token)";
-
-        for (var i = 0; i < lst.length; i++) {
-            let item = lst[i];
-            let isActive = i == 0 ? "active" : "";
-
-            let tag = `<div class="carousel-item ${isActive}">
-                            <div class="d-flex align-items-center justify-content-center min-vh-100">
-                                <img class="d-block w-100" src="${client}${item.thumb}?X-Plex-Token=${token}" alt="${item.title}">
-                            </div>
-                            <div class="carousel-caption">
-                                <span class="my-title">${item.title}</span>
-                                <h4 class="my-desc">${item.summary}</h4>
-                            </div>
-                        </div>`;
-
-            $(".carousel-inner").append(tag);
-        }
-
+        console.log(@Html.Raw(Json.Serialize(Model)));
     </script>
-
 }

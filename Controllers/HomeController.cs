@@ -40,12 +40,24 @@ namespace MyPLEX.Controllers
             request.RequestFormat = DataFormat.Xml;
 
             IRestResponse response = client.Execute(request);
+
             if (response.StatusCode != System.Net.HttpStatusCode.OK)
                 return null;
 
             dataPlex = JsonConvert.DeserializeObject<Root>(response.Content);
 
             return dataPlex;
+        }
+
+        public IActionResult Test()
+        {
+            return Ok(new
+            {
+                Client = _plexConfig.Url,
+                Token = _plexConfig.Token,
+                Url = _plexConfig.Url + "/library/sections/1/all?X-Plex-Token=" + _plexConfig.Token,
+                Data = Get()
+            });
         }
 
         public IActionResult Privacy()

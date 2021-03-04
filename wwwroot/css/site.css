@@ -55,3 +55,7 @@ img {
     position: absolute;
     bottom: 2px;
 }
+
+.carousel-control-next, .carousel-control-prev {
+    width: 5% !important;
+}
