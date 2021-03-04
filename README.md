@@ -14,3 +14,7 @@ Abra as <strong>Configurações do site</strong>.
 >- Imagens : Permitir.
 >- Downloads automaticos : Permitir.
 >- Conteúdo não Seguro : Permitir.
+
+# Dicas
+URL para testar se a api esta funcionando: `.../Home/Test`.
+Lembre-se que seu servidor PLEX deve estar rodando.
