@@ -1,64 +1,33 @@
-﻿@model MyPLEX.Models.JSONs.Root
+﻿@model MyPLEX.Models.ConfigVisualizacao
+@using MyPLEX.Enums
+
+
 @{
-    int start = 0;
+    ViewData["Title"] = "Config Visualização";
 }
 
-<div id="carouselExampleControls" class="carousel slide" data-pause="false" data-ride="carousel">
-    <div class="carousel-inner bg-info" role="listbox">
-        <div class="row position-absolute">
-            <div class="col-6">
-                <div class="eluander">
-                    <img src="~/icones/eluander-logo-full-v2.png" style="max-height: 90px;" />
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="plex">
-                    <img src="~/icones/plex-icon.png" style="max-height: 70px;" />
-                </div>
+<div class="container">
+    <center>
+        <div class="row">
+            <div class="col-md-12">
+                <form asp-action="Visualizador">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Section" class="control-label"></label>
+                        <input type="number" asp-for="Section" class="form-control" value="1" />
+                        <span asp-validation-for="Section" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="EModoVisualizacao" class="control-label"></label>
+                        <select asp-for="EModoVisualizacao" class="form-control custom-select" asp-items="Html.GetEnumSelectList<EModoVisualizacao>()"></select>
+                        <span asp-validation-for="EModoVisualizacao" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Visualizar" class="btn btn-primary" />
+                    </div>
+                </form>
             </div>
         </div>
+    </center>
 
-        @if (Model != null)
-        {
-            foreach (var item in Model.MediaContainer.Metadata)
-            {
-                start++;
-
-                <div class="carousel-item @Html.Raw(start == 1 ? "active" : "")">
-                    <div class="d-flex align-items-center justify-content-center min-vh-100">
-                        <img class="d-block w-100" src="@Html.Raw(ViewBag.Client + item.thumb + "?X-Plex-Token=" + ViewBag.Token)" alt="@item.title">
-                    </div>
-                    <div class="carousel-caption">
-                        <h2 class="my-title">@item.title</h2>
-                        <span class="my-desc">@item.summary.Substring(0, Math.Min(item.summary.Length, 400))</span>
-                    </div>
-                </div>
-            }
-        }
-        <div class="footer-plex">
-            <a class="btn btn-link text-white-50" href="https://eluander.com.br">eluander.com.br</a>
-        </div>
-    </div>
-    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
 </div>
-
-@if (Model == null)
-{
-    <h1>Erro ao carregar api PLEX</h1>
-}
-
-@section Scripts{ 
-    <script type="text/javascript">
-        console.log("@ViewBag.Client");
-        console.log("@ViewBag.Token");
-
-        console.log(@Html.Raw(Json.Serialize(Model)));
-    </script>
-}

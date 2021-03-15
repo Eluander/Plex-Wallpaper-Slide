@@ -18,3 +18,8 @@ Abra as <strong>Configurações do site</strong>.
 # Dicas
 URL para testar se a api esta funcionando: `.../Home/Test`.
 Lembre-se que seu servidor PLEX deve estar rodando.
+
+# Formulario de configuração
+O plex fornece uma api com varias sections, onde cada section é uma biblioteca plex,
+agora com esta atualização é possivel informar qual a section a ser exibida e o modo
+de visualização ["Paisagem", "Retrato"].

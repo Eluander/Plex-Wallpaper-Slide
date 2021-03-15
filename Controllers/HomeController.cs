@@ -28,15 +28,24 @@ namespace MyPLEX.Controllers
             ViewBag.Client = _plexConfig.Url;
             ViewBag.Token = _plexConfig.Token;
 
-            return View(Get());
+            return View(new ConfigVisualizacao());
         }
 
-        public Root Get()
+        public IActionResult Visualizador(ConfigVisualizacao model)
+        {
+            ViewBag.Client = _plexConfig.Url;
+            ViewBag.Token = _plexConfig.Token;
+            ViewBag.Config = model;
+
+            return View(Get(model.Section));
+        }
+
+        public Root Get(int? section)
         {
             var dataPlex = new Root();
 
             var client = new RestClient(_plexConfig.Url);
-            var request = new RestRequest("/library/sections/1/all?X-Plex-Token=" + _plexConfig.Token, Method.GET);
+            var request = new RestRequest($"/library/sections/{section}/all?X-Plex-Token=" + _plexConfig.Token, Method.GET);
             request.RequestFormat = DataFormat.Xml;
 
             IRestResponse response = client.Execute(request);
@@ -56,7 +65,7 @@ namespace MyPLEX.Controllers
                 Client = _plexConfig.Url,
                 Token = _plexConfig.Token,
                 Url = _plexConfig.Url + "/library/sections/1/all?X-Plex-Token=" + _plexConfig.Token,
-                Data = Get()
+                Data = Get(1)
             });
         }
 
